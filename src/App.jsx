@@ -7,6 +7,7 @@ import Leaderboard from './components/Leaderboard';
 import TreeDensity from './components/TreeDensity';
 import Weather from './components/Weather';
 import './index.css'
+import ChatInterface from './components/ChatInterface';
 
 function App() {
   return (
@@ -43,7 +44,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/data" element={<TreeDensity/>} />
-            <Route path="/environmental" element={<Weather/>} />
+            <Route path="/environmental" element={<ChatInterface/>} />
           </Routes>
         </main>
       </div>
