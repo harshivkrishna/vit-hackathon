@@ -12,15 +12,15 @@ import {
 } from "lucide-react";
 import { getTreeRecommendations } from "./lib/gemini";
 
-export default function ChatInterface() {
+export default function ChatInterface({weatherData,noOfTrees,area}) {
   const [formData, setFormData] = useState({
-    temperature: "",
-    humidity: "",
-    windSpeed: "",
-    precipitation: "",
-    airQuality: "",
-    numTrees: "",
-    area: "",
+    temperature: weatherData.temperature ,
+    humidity: weatherData.humidity,
+    windSpeed: weatherData.windSpeed,
+    precipitation: (weatherData.precipitation==0)?0.01:weatherData.precipitation,
+    airQuality: weatherData.airQuality,
+    numTrees: noOfTrees,
+    area: area,
   });
   const [messages, setMessages] = useState([
     {
@@ -37,6 +37,19 @@ export default function ChatInterface() {
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+
+  useEffect(() => {
+    if (weatherData) {
+      setFormData((prev) => ({
+        ...prev,
+        temperature: weatherData.temperature,
+        humidity: weatherData.humidity,
+        windSpeed: weatherData.windSpeed,
+        precipitation: weatherData.precipitation,
+        airQuality: weatherData.airQuality?.index,
+      }));
+    }
+  }, [weatherData]);
 
   useEffect(() => {
     scrollToBottom();

@@ -33,6 +33,10 @@ const Navbar = () => {
               <UserCircle className="h-5 w-5" />
               <span>Profile</span>
             </Link>
+            <Link to="/chat" className="flex items-center space-x-1 hover:text-green-200">
+              <UserCircle className="h-5 w-5" />
+              <span>Chatbot</span>
+            </Link>
           </div>
         </div>
       </div>

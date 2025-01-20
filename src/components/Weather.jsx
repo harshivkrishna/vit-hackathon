@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MapPin, RefreshCw, Move } from 'lucide-react';
 import { SearchBar } from './SearchBar';
 import { WeatherCard } from './WeatherCard';
@@ -37,13 +37,18 @@ import { getLocationDetails, getWeatherData } from './utils/api';
  * @property {number} lon
  */
 
-const Weather = () => {
+const Weather = ({onWeatherUpdate,changeArea}) => {
   /** @type {[LocationData | null, React.Dispatch<React.SetStateAction<LocationData | null>>]} */
   const [location, setLocation] = useState(null);
 
   /** @type {[WeatherData | null, React.Dispatch<React.SetStateAction<WeatherData | null>>]} */
   const [weather, setWeather] = useState(null);
-
+  useEffect(()=>{
+    onWeatherUpdate(weather);
+  },[weather]);
+  useEffect(()=>{
+    changeArea((location==null)?(0):(location.areaSize))
+  },[location]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -57,6 +62,9 @@ const Weather = () => {
       ]);
       setLocation(locationData);
       setWeather(weatherData);
+      if (onWeatherUpdate) {
+        onWeatherUpdate(weatherData);
+      }
     } catch (err) {
       setError('Failed to fetch location data. Please try again.');
       console.error(err);

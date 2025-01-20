@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Dashboard from './components/Dashboard';
@@ -10,6 +11,9 @@ import './index.css'
 import ChatInterface from './components/ChatInterface';
 
 function App() {
+  const [weatherData, setWeatherData] = useState(null);
+  const [noOfTrees,setNoOfTrees]=useState(0);
+  const [area,setArea]=useState(0);
   return (
       <div className="min-h-screen">
         <Navbar />
@@ -43,8 +47,9 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
-            <Route path="/data" element={<TreeDensity/>} />
-            <Route path="/environmental" element={<ChatInterface/>} />
+            <Route path="/data" element={<TreeDensity  changeTrees={(temp)=>setNoOfTrees(temp)}/>} />
+            <Route path="/environmental" element={<Weather changeArea={(data)=>setArea(data)}  onWeatherUpdate={(data) => setWeatherData(data)} />} />
+            <Route path="/chat" element={<ChatInterface area={area} weatherData={weatherData} noOfTrees={noOfTrees}/>} />
           </Routes>
         </main>
       </div>

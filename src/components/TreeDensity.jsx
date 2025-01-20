@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const TreeDensity = () => {
+const TreeDensity = ({changeTrees}) => {
   const [locality, setLocality] = useState("");
   const [treeData, setTreeData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  // console.log(treeData.length)
+  useEffect(()=>{
+    changeTrees(treeData.length);
+  },[treeData.length])
 
   const fetchTreeData = async () => {
     if (!locality) {
