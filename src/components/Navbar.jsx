@@ -17,7 +17,7 @@ const Navbar = () => {
               <LayoutDashboard className="h-5 w-5" />
               <span>Dashboard</span>
             </Link>
-            <Link to="/map" className="flex items-center space-x-1 hover:text-green-200">
+            <Link to="/data" className="flex items-center space-x-1 hover:text-green-200">
               <Map className="h-5 w-5" />
               <span>GIS Data</span>
             </Link>

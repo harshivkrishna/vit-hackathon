@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const TreesByLocality = () => {
+const TreeDensity = () => {
   const [locality, setLocality] = useState("");
   const [treeData, setTreeData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -51,15 +51,17 @@ const TreesByLocality = () => {
   };
 
   return (
-    <div>
-      <h1>Tree Data by Locality</h1>
+    <div className="p-4">
+      <h1 className="text-3xl font-bold text-green-800 mb-8">Tree Data by Locality</h1>
       <input
         type="text"
         placeholder="Enter locality name"
         value={locality}
         onChange={(e) => setLocality(e.target.value)}
+        className="border-0 outline-0 bg-gray-200 p-2 rounded-md mb-9"
       />
-      <button onClick={fetchTreeData}>Fetch Tree Data</button>
+      <br />
+      <button onClick={fetchTreeData} className="bg-green-400 p-3 rounded-lg ">Fetch Tree Data</button>
 
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
@@ -70,9 +72,9 @@ const TreesByLocality = () => {
         </div>
       )}
 
-      {!loading && !error && treeData.length === 0 && <p>No trees found for this locality.</p>}
+      {!error && treeData.length === 0 && <p>No trees found for this locality.</p>}
     </div>
   );
 };
 
-export default TreesByLocality;
+export default TreeDensity;

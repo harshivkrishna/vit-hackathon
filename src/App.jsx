@@ -2,7 +2,9 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Dashboard from './components/Dashboard';
-
+import Profile from './components/Profile';
+import Leaderboard from './components/Leaderboard';
+import TreeDensity from './components/TreeDensity';
 function App() {
   return (
       <div className="min-h-screen bg-gray-50">
@@ -35,7 +37,9 @@ function App() {
               </div>
             } />
             <Route path="/dashboard" element={<Dashboard />} />
-            {/* Other routes will be added as we create their components */}
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/leaderboard" element={<Leaderboard />} />
+            <Route path="/data" element={<TreeDensity/>} />
           </Routes>
         </main>
       </div>
