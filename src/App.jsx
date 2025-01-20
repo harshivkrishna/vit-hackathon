@@ -5,6 +5,7 @@ import Dashboard from './components/Dashboard';
 import Profile from './components/Profile';
 import Leaderboard from './components/Leaderboard';
 import TreeDensity from './components/TreeDensity';
+import Weather from './components/Weather';
 function App() {
   return (
       <div className="min-h-screen bg-gray-50">
@@ -40,6 +41,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/data" element={<TreeDensity/>} />
+            <Route path="/environmental" element={<Weather/>} />
           </Routes>
         </main>
       </div>

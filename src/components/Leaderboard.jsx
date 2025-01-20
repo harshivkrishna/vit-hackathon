@@ -11,7 +11,7 @@ const Leaderboard = () => {
       { rank: 3, name: "Virat Kholi", trees: 38, league: "Gold", avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150" }
     ],
     yearly: [
-      { rank: 1, name: "Jachsparrow", trees: 523, league: "Diamond", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150" },
+      { rank: 1, name: "Jack Sparrow", trees: 523, league: "Diamond", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150" },
       { rank: 2, name: "Thalapathy Vijay", trees: 487, league: "Diamond", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150" },
       { rank: 3, name: "Sergio Marquina", trees: 452, league: "Diamond", avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150" }
     ]
